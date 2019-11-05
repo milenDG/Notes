@@ -12,48 +12,42 @@
   <body>
     <header id="header" class="navbar navbar-expand-lg navbar-dark">
       <a href="/">
-        <img src="/images/logo.png" class="float-left mr-0 mr-md-2 clickable-img" alt="logo" height="50" width="50">
+        <img src="/images/logo.png" class="float-left mr-0 mr-md-2 clickable-img" alt="logo" height="40" width="40">
       </a>
-      <a class="navbar-brand font-weight-bold" href="/">TicTacToe</a>
+      <a class="navbar-brand font-weight-bold" href="/">Notes</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a id="about-nav" class="nav-link active" href="/Home">Home</a>
+            <a id="about-nav" class="nav-link active" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a id="experience-nav" class="nav-link" href="#" onclick="replaceView('experience')">Experience</a>
+            <a id="experience-nav" class="nav-link" href="/Collections/Index">Collections</a>
           </li>
           <li class="nav-item">
-            <a id="education-nav" class="nav-link" href="#" onclick="replaceView('education')">Education</a>
+            <a id="education-nav" class="nav-link" href="/Notes/Index">Notes</a>
           </li>
-          <li id="projects-dropdown" onmouseover="showProjects()" class="nav-item dropdown">
-            <a id="projects-nav" onclick="replaceView('projects')" onmouseout="hideProjects()" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
-            <div id="projects-dropdown-menu" onmouseover="showProjects()" onmouseout="hideProjects()" class="dropdown-menu" style="margin-top: 0px;">
-              <a class="dropdown-item" href="#nato-bulcod" onclick="replaceView('projects')">NATO BulCod</a>
-              <a class="dropdown-item" href="#regix" onclick="replaceView('projects')">Registry Information Exchange</a>
-              <a class="dropdown-item" href="#multi-touch" onclick="replaceView('projects')">Android Multi-touch Tester</a>
-              <a class="dropdown-item" href="#morse-code" onclick="replaceView('projects')">Morse Encoder/Decoder</a>
-              <a class="dropdown-item" href="#puzzle-bot" onclick="replaceView('projects')">PuzzleBot</a>
-              <a class="dropdown-item" href="#football-manager" onclick="replaceView('projects')">Football Manager</a>
-              <a class="dropdown-item" href="#chitalishte-saglasie" onclick="replaceView('projects')">'Saglasie' Village Zhabokrat</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a id="search-nav" class="nav-link" href="#" onclick="replaceView('search')">Search</a>
-          </li>
-          <li class="navbar-text float-right">
-            <% if user_signed_in? %>
-              Logged in as <strong><%= current_user.email %></strong>.
-              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-            <% else %>
-              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-            <% end %>
-          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><%= current_user.email %></strong></a>
+              <div id="projects-dropdown-menu"class="dropdown-menu" style="margin-top: 0px;">
+                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item' %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-item' %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Not Signed</strong></a>
+              <div id="projects-dropdown-menu"class="dropdown-menu" style="margin-top: 0px;">
+                <%= link_to "Sign up", new_user_registration_path, :class => 'dropdown-item' %>
+                <%= link_to "Login", new_user_session_path, :class => 'dropdown-item' %>
+              </div>
+            </li>
+          <% end %>
         </ul>
       </div>
     </header>
@@ -63,6 +57,84 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-    <%= yield %>
+
+
+    <div id="main-content" class="container col-11 rounded-img">
+      <div class="row">
+        <div id="text-content-holder" class="col-xl-9 col-lg-8 col-md-7 left-rounded-img">
+          <%= yield %>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-5 text-center" style="padding-top: 15px; padding-bottom: 20px">
+
+        </div>
+      </div>
+    </div>
+
+
+    <footer id="footer" class=" pt-4">
+      <div class="container">
+        <h2 class="text-center">Notes Application</h2>
+        <p class="text-center">A place where you can store all your notes, thoughts, ToDo Lists and everything else you want!</p>
+      </div>
+      <hr style="margin: 10px !important" />
+      <div class="container-fluid text-center text-md-left">
+        <div class="row">
+          <div class="col-md-5 mt-md-0 mt-3">
+            <h5 class="text-uppercase">Milen Georgiev (Creator)</h5>
+            <p style="margin-bottom: 8px !important">Software Engineer and student at University of Surrey.</p>
+            <a href="https://www.surrey.ac.uk/" target="_blank">
+              <img class="svg" src="/svg/university-of-surrey.svg" height="50" alt="University of Surrey">
+            </a>
+          </div>
+          <hr class="clearfix w-100 d-md-none pb-3">
+          <div class="col-md-4 mb-md-0 mb-3">
+            <h5 class="text-uppercase">Emails</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a class="footer-text-link" href="mailto:milendg99@gmail.com" target="_top">
+                  milendg99@gmail.com
+                </a>
+                (Personal email)
+              </li>
+              <li>
+                <a class="footer-text-link" href="mailto:mg00929@surrey.ac.uk" target="_top">
+                  mg00929@surrey.ac.uk
+                </a>
+                (University email)
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-md-0 mb-3">
+            <h5 class="text-uppercase">Social networks</h5>
+            <div class="list-unstyled">
+              <a href="https://www.linkedin.com/in/milen-georgiev1/" target="_blank">
+                <img class="svg" src="/svg/linkedin-in-brands.svg" height="40" alt="LinkedIn.com">
+              </a>
+              <a href="https://github.com/milenDG" target="_blank">
+                <img class="svg" src="/svg/github-brands.svg" height="40" alt="Github.com">
+              </a>
+              <a href="https://www.facebook.com/milendg1" target="_blank">
+                <img class="svg" src="/svg/facebook-brands.svg" height="40" alt="Facebook.com">
+              </a>
+              <a href="#" target="_blank">
+                <img class="svg" src="/svg/instagram-brands.svg" height="40" alt="Instagram.com">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr style="margin: 10px !important" />
+      <div class="text-center py-3">
+        The site is published on my Github account in repository
+        <a class="footer-text-link" href="https://github.com/milenDG/Notes" target="_blank">Notes</a>.
+        <br />© 2019 Copyright:
+        <a class="footer-text-link" href="https://www.linkedin.com/in/milen-georgiev1/" target="_blank"> Milen Georgiev</a>
+      </div>
+    </footer>
+
+    <div class="alert text-center cookiealert cookiehide" role="alert">
+      <b>Cookie Notice</b> <img src="/svg/cookie.svg" width="25" alt="cookie.svg" style="padding-right: 5px;"> The site uses cookies to ensure you get the best experience. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+      <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">I agree</button>
+    </div>
   </body>
 </html>
