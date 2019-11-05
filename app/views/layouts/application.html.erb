@@ -10,6 +10,59 @@
   </head>
 
   <body>
+    <header id="header" class="navbar navbar-expand-lg navbar-dark">
+      <a href="/">
+        <img src="/images/logo.png" class="float-left mr-0 mr-md-2 clickable-img" alt="logo" height="50" width="50">
+      </a>
+      <a class="navbar-brand font-weight-bold" href="/">TicTacToe</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a id="about-nav" class="nav-link active" href="/Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a id="experience-nav" class="nav-link" href="#" onclick="replaceView('experience')">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a id="education-nav" class="nav-link" href="#" onclick="replaceView('education')">Education</a>
+          </li>
+          <li id="projects-dropdown" onmouseover="showProjects()" class="nav-item dropdown">
+            <a id="projects-nav" onclick="replaceView('projects')" onmouseout="hideProjects()" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
+            <div id="projects-dropdown-menu" onmouseover="showProjects()" onmouseout="hideProjects()" class="dropdown-menu" style="margin-top: 0px;">
+              <a class="dropdown-item" href="#nato-bulcod" onclick="replaceView('projects')">NATO BulCod</a>
+              <a class="dropdown-item" href="#regix" onclick="replaceView('projects')">Registry Information Exchange</a>
+              <a class="dropdown-item" href="#multi-touch" onclick="replaceView('projects')">Android Multi-touch Tester</a>
+              <a class="dropdown-item" href="#morse-code" onclick="replaceView('projects')">Morse Encoder/Decoder</a>
+              <a class="dropdown-item" href="#puzzle-bot" onclick="replaceView('projects')">PuzzleBot</a>
+              <a class="dropdown-item" href="#football-manager" onclick="replaceView('projects')">Football Manager</a>
+              <a class="dropdown-item" href="#chitalishte-saglasie" onclick="replaceView('projects')">'Saglasie' Village Zhabokrat</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a id="search-nav" class="nav-link" href="#" onclick="replaceView('search')">Search</a>
+          </li>
+          <li class="navbar-text float-right">
+            <% if user_signed_in? %>
+              Logged in as <strong><%= current_user.email %></strong>.
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
