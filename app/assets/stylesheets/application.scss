@@ -15,6 +15,11 @@
  */
 @import "bootstrap";
 
+$dark_blue: #1A535C;
+$light_blue: #B3C4C7;
+$medium_blue: #3B6C73;
+$dark_gold: #99861D;
+
 body {
   background-color: whitesmoke;
 }
@@ -22,14 +27,14 @@ body {
 #header {
   padding-top: 8px;
   padding-bottom: 8px;
-  background-color: #1A535C !important
+  background-color: $dark_blue !important
 }
 
 #main-content {
   margin-top: 25px;
   margin-bottom: 50px;
-  background-color: #B3C4C7;
-  box-shadow: 0 10px 25px #B3C4C7;
+  background-color: $light_blue;
+  box-shadow: 0 10px 25px $light_blue;
   font-size: 15pt
 }
 
@@ -71,12 +76,18 @@ body {
   .data-img {
     margin-left: 20px;
   }
+
+
+  .alert{
+    margin-top: 65px;
+  }
+
 }
 
 #footer {
   padding-top: 8px;
   padding-bottom: 8px;
-  background-color: #3B6C73 !important;
+  background-color: $medium_blue !important;
   color: #B7C8CA
 }
 
@@ -106,7 +117,7 @@ img.svg {
 }
 
 .secondary-text {
-  color: #99861d !important;
+  color: $dark_gold !important;
 }
 
 a > .svg {
@@ -114,15 +125,24 @@ a > .svg {
 }
 
 h1 {
-  background-color: #B3C4C7;
+  background-color: $light_blue;
   padding: 10px;
-  border-radius: 15px;
   text-align: center;
   font-weight: bold;
+  @extend .rounded-img
+}
+
+.rounded-img{
+  border-radius: 15px;
+}
+
+.field_with_errors>input {
+  @extend .is-invalid;
+  display: inline-block;
 }
 
 #address-heading {
-  background-color: #B3C4C7;
+  background-color: $light_blue;
   padding: 10px;
   margin-top: 5px;
 }
@@ -160,15 +180,15 @@ p {
 
 .link-button {
   background-color: inherit;
-  color: #99861d;
-  border: 2px solid #99861d;
+  color: $dark_gold;
+  border: 2px solid $dark_gold;
   text-align: center;
   margin: 4px 2px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
   &:hover {
-    background-color: #99861d;
+    background-color: $dark_gold;
     color: lightgray;
   }
 }
@@ -226,5 +246,14 @@ p {
   & .acceptcookies {
     margin-left: 10px;
     vertical-align: baseline;
+  }
+}
+
+.btn-primary{
+  background-color: $dark_blue;
+  border-color: $medium_blue;
+  &:hover{
+    background-color: $medium_blue;
+    border-color: $dark_blue;
   }
 }

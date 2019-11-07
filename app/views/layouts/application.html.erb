@@ -21,20 +21,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a id="about-nav" class="nav-link active" href="/">Home</a>
+            <a class="nav-link active" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a id="experience-nav" class="nav-link" href="/Collections/Index">Collections</a>
+            <a class="nav-link" href="/collections/index">Collections</a>
           </li>
           <li class="nav-item">
-            <a id="education-nav" class="nav-link" href="/Notes/Index">Notes</a>
+            <a class="nav-link" href="/notes/index">Notes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/home/contact">Contact</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><%= current_user.email %></strong></a>
-              <div id="projects-dropdown-menu"class="dropdown-menu" style="margin-top: 0px;">
+              <div class="dropdown-menu" style="margin-top: 0px;">
                 <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item' %>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-item' %>
               </div>
@@ -42,9 +45,9 @@
           <% else %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Not Signed</strong></a>
-              <div id="projects-dropdown-menu"class="dropdown-menu" style="margin-top: 0px;">
-                <%= link_to "Sign up", new_user_registration_path, :class => 'dropdown-item' %>
-                <%= link_to "Login", new_user_session_path, :class => 'dropdown-item' %>
+              <div class="dropdown-menu" style="margin-top: 0px;">
+                <%= link_to "Log In", new_user_session_path, :class => 'dropdown-item' %>
+                <%= link_to "Register", new_user_registration_path, :class => 'dropdown-item' %>
               </div>
             </li>
           <% end %>
