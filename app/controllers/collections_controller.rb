@@ -11,11 +11,11 @@ class CollectionsController < ApplicationController
     @collection.user = current_user
     respond_to do |format|
       if @collection.save
-        @notice = 'Collection was succesfully created.'
+        @appnotice = 'Collection was succesfully created.'
         format.html {redirect_to collections_all_path}
         format.json {render :show, status: :created, location: @collection }
       else
-        @alert = 'Collection should have a name and a description.'
+        @appalert = 'Collection should have a name and a description.'
         format.html { render :new}
         format.json { render json: @collection.errors, status: :unprocessable_entity }
       end
