@@ -1,0 +1,26 @@
+<h1>Collections</h1>
+<p>Collections are the place where your notes are stored. If you want to have order in your notes, you should use collections to separate them (like folders). <small>If not just use QuickNotes TODO: Link to quick notes</small></p>
+<hr/>
+<% if @collections.exists? %>
+  <h2>My notes:</h2>
+  <br>
+  <% @collections.each do |collection| %>
+      <section class="container rounded-img border" style="background: lightcyan">
+        <h2 class="text-center">
+          <%= collection.name %>
+          <br/>
+          <small class="font_italic secondary-text" style="font-size: 17pt;"><%= collection.subtitle %></small>
+        </h2>
+        <div class="container border rounded-img"><%= collection.description %></div>
+      </section>
+    <br/>
+  <% end %>
+
+  <hr/>
+  <p>If you want to create another one: </p>
+  <%= link_to "Create collection", new_collection_path, :class => 'btn btn-primary', :role => 'button' %>
+<%else %>
+  <p>You currently have no collections! If you want to create one click here: </p>
+  <br/>
+  <%= link_to "Create collection", new_collection_path, :class => 'btn btn-primary', :role => 'button' %>
+<%end %>

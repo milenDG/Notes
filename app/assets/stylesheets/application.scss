@@ -199,6 +199,17 @@ p {
   &:hover {
     color: lightgray !important;
   }
+
+  &.active {
+    color: white !important;
+    font-weight: 500 !important;
+    font-style: italic !important;
+
+    &:hover {
+      color: lightgoldenrodyellow !important;
+      transition: 300ms;
+    }
+  }
 }
 
 .navbar-brand {
@@ -207,16 +218,6 @@ p {
   font-size: 22px;
   &:hover {
     color: lightgoldenrodyellow !important;
-  }
-}
-
-.nav-link.active {
-  color: white;
-  font-weight: 500;
-  font-style: italic;
-  &:hover {
-    color: lightgoldenrodyellow !important;
-    transition: 300ms;
   }
 }
 

@@ -20,22 +20,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
+          <li controller="home" class="nav-item">
+            <a class="nav-link" href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/collections/index">Collections</a>
+          <li controller="collections" class="nav-item">
+            <a class="nav-link" href="/collections/all">Collections</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/notes/index">Notes</a>
+          <li controller="notes" class="nav-item">
+            <a class="nav-link" href="/notes/all">Notes</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/home/contact">Contact</a>
+          <li controller="contacts" class="nav-item">
+            <a class="nav-link" href="/contacts/index">Contacts</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-            <li class="nav-item dropdown">
+            <li controller="users" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><%= current_user.email %></strong></a>
               <div class="dropdown-menu" style="margin-top: 0px;">
                 <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item' %>
@@ -43,7 +43,7 @@
               </div>
             </li>
           <% else %>
-            <li class="nav-item dropdown">
+            <li controller="users" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Not Signed</strong></a>
               <div class="dropdown-menu" style="margin-top: 0px;">
                 <%= link_to "Log In", new_user_session_path, :class => 'dropdown-item' %>

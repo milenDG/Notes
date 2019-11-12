@@ -17,13 +17,18 @@
 //= require_tree .
 
 $(document).ready(() => {
+    //Show cookie notice.
     showCookieNotice();
 
+    // Remove alerts after 2 seconds
     window.setTimeout(function() {
         $(".alert").fadeTo(500, 0).slideUp(500, function(){
             $(this).remove();
         });
-    }, 1500);
+    }, 2000);
+
+    //Set current navigation link on header
+    $('ul li[controller=' + location.pathname.split("/")[1] + '] a')[0].classList.add('active')
 })
 
 
