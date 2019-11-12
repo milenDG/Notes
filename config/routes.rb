@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notebooks
   get 'home/index'
   get 'contacts/index'
   get 'collections/all'

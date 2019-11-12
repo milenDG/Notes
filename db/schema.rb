@@ -10,41 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_094511) do
+ActiveRecord::Schema.define(version: 2019_11_12_214428) do
 
-  create_table "collections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "name", null: false
-    t.string "description", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "subtitle"
-    t.index ["user_id"], name: "index_collections_on_user_id"
-  end
-
-  create_table "mails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "mails", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.string "telephone"
     t.string "title"
     t.string "message", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_mails_on_user_id"
   end
 
-  create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "collection_id", null: false
-    t.string "name", null: false
-    t.string "topic"
-    t.text "text", null: false
+  create_table "notebooks", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "subtitle"
+    t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["collection_id"], name: "index_notes_on_collection_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_notebooks_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -59,6 +49,4 @@ ActiveRecord::Schema.define(version: 2019_11_12_094511) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "collections", "users", name: "FK_CollectionUser"
-  add_foreign_key "notes", "collections", name: "FK_NoteCollection"
 end
