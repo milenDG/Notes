@@ -25,6 +25,7 @@ class NotebooksController < ApplicationController
   # POST /notebooks.json
   def create
     @notebook = Notebook.new(notebook_params)
+    @notebook.user = current_user
 
     respond_to do |format|
       if @notebook.save

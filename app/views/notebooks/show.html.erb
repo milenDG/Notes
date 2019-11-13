@@ -1,19 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h1>Notebook: <%= @notebook.title %></h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @notebook.title %>
-</p>
+<br/>
 
-<p>
-  <strong>Subtitle:</strong>
-  <%= @notebook.subtitle %>
-</p>
+<%= render 'notebook', notebook: @notebook %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @notebook.description %>
-</p>
-
-<%= link_to 'Edit', edit_notebook_path(@notebook) %> |
-<%= link_to 'Back', notebooks_path %>
+<%= link_to 'Back to Notebooks', notebooks_path, :class => "btn btn-secondary" %>

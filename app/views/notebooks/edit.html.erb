@@ -1,6 +1,7 @@
 <h1>Editing Notebook</h1>
 
-<%= render 'form', notebook: @notebook %>
+<%= render 'form', notebook: @notebook, action: 'Edit' %>
 
-<%= link_to 'Show', @notebook %> |
-<%= link_to 'Back', notebooks_path %>
+<br/>
+<%= link_to 'Show ', @notebook, :class => "btn btn-info" %>
+<%= link_to 'Back', notebooks_path, :class => "btn btn-secondary" %>

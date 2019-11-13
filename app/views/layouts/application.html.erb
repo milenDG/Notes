@@ -21,16 +21,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li controller="home" class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <%= link_to 'Home', home_index_path, :class => 'nav-link' %>
           </li>
-          <li controller="collections" class="nav-item">
-            <a class="nav-link" href="/collections/all">Collections</a>
+          <li controller="notebooks" class="nav-item">
+            <%= link_to 'Notebooks', notebooks_path, :class => 'nav-link' %>
           </li>
           <li controller="notes" class="nav-item">
-            <a class="nav-link" href="/notes/all">Notes</a>
+            <%= link_to 'Notes', notes_path, :class => 'nav-link' %>
           </li>
           <li controller="contacts" class="nav-item">
-            <a class="nav-link" href="/contacts/index">Contacts</a>
+            <%= link_to 'Contacts', contacts_index_url, :class => 'nav-link' %>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">

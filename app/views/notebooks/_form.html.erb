@@ -1,6 +1,6 @@
-<%= form_with(model: notebook, local: true) do |form| %>
+<%= form_with(model: notebook, local: true) do |f| %>
   <% if notebook.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="container">
       <h2><%= pluralize(notebook.errors.count, "error") %> prohibited this notebook from being saved:</h2>
 
       <ul>
@@ -11,22 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true, :class => 'form-control', :maxlength => 255 %>
   </div>
 
-  <div class="field">
-    <%= form.label :subtitle %>
-    <%= form.text_field :subtitle %>
+  <div class="form-group">
+    <%= f.label :subtitle %> <small>(optional)</small>
+    <%= f.text_field :subtitle, autofocus: true, :class => 'form-control', :maxlength => 255 %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, autofocus: true, :class => 'form-control', :rows => 5 %>
   </div>
+
+  <br/>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit "#{action} notebook", :class => 'btn btn-primary'%>
   </div>
 <% end %>

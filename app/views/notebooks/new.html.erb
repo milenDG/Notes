@@ -1,5 +1,6 @@
 <h1>New Notebook</h1>
 
-<%= render 'form', notebook: @notebook %>
+<%= render 'form', notebook: @notebook, action: 'Create' %>
+<hr/>
 
-<%= link_to 'Back', notebooks_path %>
+<%= link_to 'Back', notebooks_path, :class => 'btn btn-secondary' %>
