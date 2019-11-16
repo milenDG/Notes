@@ -78,16 +78,12 @@ yarn-debug.log*
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
-app/assets/stylesheets/collections.scss
-app/assets/stylesheets/notes.scss
 app/models/note.rb
 app/models/user.rb
 app/services/
-app/views/collections/
-app/views/notes/
 config/database.yml
 db/development.sqlite3
-db/migrate/20191112094511_create_mails.rb
 log/
 public/robots.txt
 tmp/
+!/app/views/notes/

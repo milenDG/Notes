@@ -2,7 +2,7 @@
 <p>Notebooks are the place where your notes are stored. If you want to have order in your notes, you should use notebooks to separate them (like folders). <small>If not just use QuickNotes TODO: Link to quick notes</small></p>
 <hr/>
 <% if @notebooks.exists? %>
-  <h2>My notes:</h2>
+  <h2>My notesbooks:</h2>
   <div class="row">
     <% @notebooks.each do |notebook| %>
       <%= render 'notebook', notebook: notebook %>
@@ -11,7 +11,7 @@
   <hr/>
   <p>If you want to create another one: </p>
 <%else %>
-  <p>You currently have no notebooks! If you want to create one click here: </p>
+  <p>You currently have no notes! If you want to create one click here: </p>
   <br/>
 <%end %>
 <%= link_to "Create notebook", new_notebook_path, :class => 'btn btn-primary', :role => 'button' %>

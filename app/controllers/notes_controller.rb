@@ -15,6 +15,7 @@ class NotesController < ApplicationController
   # GET /notes/new
   def new
     @note = Note.new
+    @notebooks = Notebook.all
   end
 
   # GET /notes/1/edit
@@ -25,6 +26,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+    @note.user = current_user
 
     respond_to do |format|
       if @note.save
