@@ -1,10 +1,9 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Rails template
 *.rbc
 capybara-*.html
 .rspec
 /db/*.sqlite3
 /db/*.sqlite3-journal
+/db/*.sqlite3-[0-9]*
 /public/system
 /coverage/
 /spec/tmp
@@ -66,24 +65,3 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
-
-.idea/$PRODUCT_WORKSPACE_FILE$
-.idea/.generators
-.idea/.gitignore
-.idea/.rakeTasks
-.idea/Notes.iml
-.idea/dataSources.xml
-.idea/dataSources/
-.idea/inspectionProfiles/
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-app/models/note.rb
-app/models/user.rb
-app/services/
-config/database.yml
-db/development.sqlite3
-log/
-public/robots.txt
-tmp/
-!/app/views/notes/
