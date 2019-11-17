@@ -1,15 +1,23 @@
 class NotebooksController < ApplicationController
   before_action :set_notebook, only: [:show, :edit, :update, :destroy]
 
+  def not_found
+    raise ActionController::RoutingError, 'Not Found'
+  end
+
+
   # GET /notebooks
   # GET /notebooks.json
   def index
-    @notebooks = Notebook.all
+    @notebooks = Notebook.joins(:user).where(:user => current_user)
   end
 
   # GET /notebooks/1
   # GET /notebooks/1.json
   def show
+    if @notebook.user != current_user
+      not_found
+    end
   end
 
   # GET /notebooks/new
@@ -19,6 +27,9 @@ class NotebooksController < ApplicationController
 
   # GET /notebooks/1/edit
   def edit
+    if @notebook.user != current_user
+      not_found
+    end
   end
 
   # POST /notebooks

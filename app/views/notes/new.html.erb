@@ -1,6 +1,6 @@
 <h1>New Note</h1>
 
-<% if @notebooks.exists? %>
+<% if Notebook.all.exists? %>
 
   <%= render 'form', note: @note, action: 'Create' %>
 

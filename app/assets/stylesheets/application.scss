@@ -45,7 +45,7 @@ body {
 
 .data-img {
   margin-top: 10px;
-  margin-left: 0px;
+  margin-left: 0;
   margin-bottom: 10px;
   max-width: 100% !important;
 }
@@ -136,8 +136,10 @@ h1 {
   border-radius: 15px;
 }
 
-.field_with_errors>input {
-  @extend .is-invalid;
+.field_with_errors {
+  &>.form-control {
+    @extend .is-invalid;
+  }
   display: inline-block;
 }
 
@@ -214,7 +216,7 @@ p {
 
 .navbar-brand {
   color: white;
-  font-family: Consolas;
+  font-family: Consolas, serif;
   font-size: 22px;
   &:hover {
     color: lightgoldenrodyellow !important;

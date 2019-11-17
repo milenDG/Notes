@@ -1,7 +1,6 @@
 class Note < ApplicationRecord
-  validates :title, :description, :notebook_id, :presence => true
+  validates :title, :content, :presence => true
   validates :title, :uniqueness => true
 
-
-  belongs_to :notebook
+  belongs_to :notebook, optional: true
 end

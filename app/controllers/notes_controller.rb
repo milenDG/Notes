@@ -1,15 +1,23 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
+  def not_found
+    raise ActionController::RoutingError, 'Not Found'
+  end
+
+
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = Note.joins(:notebook => :user).where(notebooks: {user: current_user})
   end
 
   # GET /notes/1
   # GET /notes/1.json
   def show
+    if @note.notebook.user != current_user
+      not_found
+    end
   end
 
   # GET /notes/new
@@ -20,13 +28,15 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
+    if @note.notebook.user != current_user
+      not_found
+    end
   end
 
   # POST /notes
   # POST /notes.json
   def create
     @note = Note.new(note_params)
-    @note.user = current_user
 
     respond_to do |format|
       if @note.save
@@ -64,13 +74,14 @@ class NotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_note
-      @note = Note.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def note_params
-      params.require(:note).permit(:title, :subtitle, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_note
+    @note = Note.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def note_params
+    params.require(:note).permit(:title, :notebook_id, :subtitle, :content)
+  end
 end

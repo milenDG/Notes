@@ -1,15 +1,26 @@
 // Place all the styles related to the Notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$light_blue: #B3C4C7;
 
 .note{
   background-image: url("/svg/sticky-note.svg") !important;
   background-size: 100% 100%;
-  padding: 8% 15% 30% 17% !important;
+  padding: 8% 10% 30% 8% !important;
   height: 90%;
 }
 
 .note-holder{
   margin-bottom: 40px;
   margin: 0 auto;
+}
+
+.note-text{
+  background: repeating-linear-gradient(
+                  to bottom,
+                  lightgoldenrodyellow,
+                  lightgoldenrodyellow 29px,
+                  #d3bf6d 1px,
+                  #d3bf6d 30px
+  );
 }

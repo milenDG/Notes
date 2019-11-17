@@ -2,11 +2,10 @@
   <div class="container note rounded-img mb-3">
     <h2 class="text-center">
       <%= note.title %>
-      <br/>
+      <hr style="margin-top:8px; margin-bottom: 0"/>
       <small class="font_italic secondary-text" style="font-size: 17pt; max-font-size: 5vp;"><%= note.subtitle %></small>
     </h2>
-    <br/>
-    <div class="container overflow-auto" style="border-radius: 10px; height: 50%; max-height: 200px;">
+    <div class="container note-text overflow-auto" style="border-radius: 10px; height: 50%; max-height: 200px;">
       <%= note.content %>
     </div>
   </div>

@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :notebooks, dependent: :destroy
+  has_many :notes, through: :notebooks
 end
