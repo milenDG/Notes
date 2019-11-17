@@ -1,0 +1,7 @@
+<h1>Note: <%= @note.title %></h1>
+
+<br/>
+
+<%= render 'note', note: @note %>
+
+<%= link_to 'Back to Notes', notes_path, :class => "btn btn-secondary" %>

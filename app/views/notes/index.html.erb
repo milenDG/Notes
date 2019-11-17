@@ -1,0 +1,21 @@
+<h1>Notes</h1>
+<p>Note are the place where you can store all your thoughts; ToDo lists; plans and everything else you want. If you want to have order in your notes, you should use notebooks to separate them (like folders). Here you can find only notes in a notebook <small>If you just want to write a note fast, use QuickNotes TODO: Link to quick notes</small></p>
+</hr>
+<% if @notes.exists? %>
+
+  <h2>My notes:</h2>
+  <div class="row">
+    <% @notes.each do |note| %>
+      <%= render 'note', note: note %>
+    <% end %>
+  </div>
+  <hr/>
+  <p>If you want to create another one: </p>
+
+<% else %>
+
+  <p>You currently have no notes! If you want to create one click here: </p>
+
+<% end %>
+
+<%= link_to "Create note", new_note_path, :class => 'btn btn-primary', :role => 'button' %>

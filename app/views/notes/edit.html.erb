@@ -1,0 +1,7 @@
+<h1>Editing Note</h1>
+
+<%= render 'form', note: @note, action: 'Edit' %>
+
+<hr/>
+<%= link_to 'Show note', @note, :class => "btn btn-info" %>
+<%= link_to 'Back to notes', notes_path, :class => "btn btn-secondary" %>

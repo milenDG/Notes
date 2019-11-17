@@ -1,0 +1,17 @@
+<section class="col-xm-12 col-sm-9 col-md-12 col-lg-9 col-xl-6 mt-2 note-holder">
+  <div class="container note rounded-img mb-3">
+    <h2 class="text-center">
+      <%= note.title %>
+      <br/>
+      <small class="font_italic secondary-text" style="font-size: 17pt; max-font-size: 5vp;"><%= note.subtitle %></small>
+    </h2>
+    <br/>
+    <div class="container overflow-auto" style="border-radius: 10px; height: 50%; max-height: 200px;">
+      <%= note.content %>
+    </div>
+  </div>
+  <div class="text-center">
+    <%= link_to 'Edit note', edit_note_path(note), :class => "btn btn-primary"%>
+    <%= link_to 'Delete note', note, method: :delete, data: { confirm: "Are you sure you want to delete Note '#{note.title}'?" }, :class => "btn btn-danger" %>
+  </div>
+</section>

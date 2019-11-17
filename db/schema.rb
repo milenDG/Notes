@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_220551) do
+ActiveRecord::Schema.define(version: 2019_11_17_100939) do
 
   create_table "mails", force: :cascade do |t|
     t.string "name", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_220551) do
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "notebooks_id"
+    t.integer "notebooks_id", null: false
     t.index ["notebooks_id"], name: "index_notes_on_notebooks_id"
     t.index ["title"], name: "index_notes_on_title", unique: true
   end
