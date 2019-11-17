@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @quick_note.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @quick_note.subtitle %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @quick_note.content %>
+</p>
+
+<%= link_to 'Edit', edit_quick_note_path(@quick_note) %> |
+<%= link_to 'Back', quick_notes_path %>

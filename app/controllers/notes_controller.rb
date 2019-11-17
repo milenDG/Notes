@@ -1,10 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-
-  def not_found
-    raise ActionController::RoutingError, 'Not Found'
-  end
-
+  before_action :authenticate_user!
 
   # GET /notes
   # GET /notes.json
@@ -23,7 +19,7 @@ class NotesController < ApplicationController
   # GET /notes/new
   def new
     @note = Note.new
-    @notebooks = Notebook.all
+    @notebooks = Notebook.joins(:user).where(user: current_user)
   end
 
   # GET /notes/1/edit
@@ -52,6 +48,10 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+    if @note.user != current_user
+      not_found
+    end
+
     respond_to do |format|
       if @note.update(note_params)
         format.html { redirect_to @note, notice: 'Note was successfully updated.' }
@@ -66,6 +66,10 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
+    if @note.notebook.user != current_user
+      not_found
+    end
+
     @note.destroy
     respond_to do |format|
       format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }

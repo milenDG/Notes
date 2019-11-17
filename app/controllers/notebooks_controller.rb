@@ -1,15 +1,11 @@
 class NotebooksController < ApplicationController
   before_action :set_notebook, only: [:show, :edit, :update, :destroy]
-
-  def not_found
-    raise ActionController::RoutingError, 'Not Found'
-  end
-
+  before_action :authenticate_user!
 
   # GET /notebooks
   # GET /notebooks.json
   def index
-    @notebooks = Notebook.joins(:user).where(:user => current_user)
+    @notebooks = Notebook.joins(:user).where(user: current_user)
   end
 
   # GET /notebooks/1
@@ -52,6 +48,10 @@ class NotebooksController < ApplicationController
   # PATCH/PUT /notebooks/1
   # PATCH/PUT /notebooks/1.json
   def update
+    if @notebook.user != current_user
+      not_found
+    end
+
     respond_to do |format|
       if @notebook.update(notebook_params)
         format.html { redirect_to @notebook, notice: 'Notebook was successfully updated.' }
@@ -66,6 +66,10 @@ class NotebooksController < ApplicationController
   # DELETE /notebooks/1
   # DELETE /notebooks/1.json
   def destroy
+    if @notebook.user != current_user
+      not_found
+    end
+
     @notebook.destroy
     respond_to do |format|
       format.html { redirect_to notebooks_url, notice: 'Notebook was successfully destroyed.' }

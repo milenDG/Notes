@@ -14,7 +14,7 @@
 
   <div class="form-group">
     <%= form.label :notebook_id %>
-    <%= form.collection_select :notebook_id, Notebook.all, :id, :title, {} ,:class => 'custom-select' %>
+    <%= form.collection_select :notebook_id, Notebook.joins(:user).where(:user => current_user), :id, :title, {} ,:class => 'custom-select' %>
   </div>
 
   <div class="form-group">

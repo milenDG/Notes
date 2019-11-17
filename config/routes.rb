@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :quick_notes
   resources :notes
   resources :notebooks
   get 'home/index'
