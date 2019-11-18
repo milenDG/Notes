@@ -6,12 +6,12 @@
 
 <% else %>
 
-  <p> You currently have no notes to put your notes into. If you want to create notes you should either create a note first or create a QuickNote.</p>
+  <p> You currently have no notes to put your notes into. If you want to create notes you should either create a notebook first or create a QuickNote.</p>
 
-  <%= link_to 'Create notebook', new_notebook_path, :class => 'btn btn-primary' %>
-  <%= link_to 'Create Quicknote', notebooks_path, :class => 'btn btn-secondary' %>
+  <%= link_to 'Create notebook', new_notebook_path, :class => 'btn btn-primary', :role => "button" %>
+  <%= link_to 'Create Quicknote', new_quick_note_path, :class => 'btn btn-secondary', :role => "button" %>
 
 <% end %>
 
 <hr/>
-<%= link_to 'Back', notes_path, :class => 'btn btn-secondary' %>
+<%= link_to 'Back', notes_path, :class => 'btn btn-secondary', :role => "button" %>

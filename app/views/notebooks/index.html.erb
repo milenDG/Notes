@@ -1,5 +1,7 @@
 <h1>Notebooks</h1>
-<p>Notebooks are the place where your notes are stored. If you want to have order in your notes, you should use notebooks to separate them (like folders). <small>If not just use QuickNotes TODO: Link to quick notes</small></p>
+<p>Notebooks are the place where your notes are stored. If you want to have order in your notes, you should use notebooks to separate them (like folders).</p>
+<small>If not just use QuickNotes: </small>
+<%= link_to "QuickNotes", quick_notes_path, :class => "btn btn-secondary", :role => "button"%>
 <hr/>
 <% if @notebooks.exists? %>
   <h2>My notesbooks:</h2>
