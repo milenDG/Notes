@@ -1,4 +1,4 @@
-<%= form_with(model: quick_note, local: true) do |form| %>
+<%= form_with(model: quick_note, local: true, :html => { :onsubmit => 'return validateForm()' }) do |form| %>
   <% if quick_note.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(quick_note.errors.count, "error") %> prohibited this quick_note from being saved:</h2>
@@ -13,7 +13,8 @@
 
   <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, autofocus: true, :class => 'form-control', :maxlength => 255 %>
+    <%= form.text_field :title, autofocus: true, :id => 'title', :class => 'form-control', :maxlength => 255 %>
+    <div class="invalid-feedback" id="title-error"></div>
   </div>
 
   <div class="form-group">
@@ -23,10 +24,11 @@
 
   <div class="form-group">
     <%= form.label :content %>
-    <%= form.text_area :content, autofocus: true, :class => 'form-control', :rows => 7 %>
+    <%= form.text_area :content, autofocus: true, :id => 'content', :class => 'form-control', :rows => 7 %>
+    <div class="invalid-feedback" id="content-error"></div>
   </div>
 
   <div class="form-group">
-    <%= form.submit "#{action} QuickNote", :class => 'btn btn-primary', :role => "button" %>
+    <%= form.submit "#{action} QuickNote", :id => 'submit', :class => 'btn btn-primary', :role => "button" %>
   </div>
 <% end %>

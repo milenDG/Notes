@@ -31,6 +31,37 @@ $(document).ready(() => {
     $('ul li[controller=' + location.pathname.split("/")[1] + '] a')[0].classList.add('active')
 })
 
+function validateForm() {
+    let title = $('#title').val();
+    let content = $('#content').val();
+    let isCorrect = true;
+
+    if (!title) {
+        $('#title-error').text('Title must not be empty!');
+        isCorrect = false;
+    } else {
+        $('#title-error').text('');
+    }
+
+    if(!content ) {
+        $('#content-error').text('Content must not be empty!');
+        isCorrect = false;
+    } else {
+        $('#content-error').text('');
+    }
+
+    if (isCorrect) {
+        $('form')[0].submit();
+    } else{
+        $('.invalid-feedback').css('display', 'block');
+        setTimeout(() =>{
+            $('#submit').removeAttr('disabled');
+        }, 500);
+    }
+
+    return isCorrect;
+}
+
 
 
 

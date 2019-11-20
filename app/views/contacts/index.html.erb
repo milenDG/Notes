@@ -1,5 +1,5 @@
 <h1>Contacts</h1>
-<%= form_with(model: @mail, local: true, url: mail_send_path) do |f|%>
+<%= form_with(model: @mail, local: true, url: mail_send_path, :html => { :onsubmit => 'return validateMail()' }) do |f|%>
 
   <% if @mail.errors.any? %>
     <div id="error_explanation" class="container">
@@ -15,18 +15,21 @@
 
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, :class => 'form-control', :maxlength => 255 %>
+    <%= f.text_field :name, autofocus: true, :id => 'name', :class => 'form-control', :maxlength => 255 %>
+    <div class="invalid-feedback" id="name-error"></div>
   </div>
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.text_field :email, autofocus: true, autocomplete: "email", :class => 'form-control', :maxlength => 255 %>
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", :id => 'email', :class => 'form-control', :maxlength => 255 %>
+    <div class="invalid-feedback" id="email-error"></div>
   </div>
 
   <div class="form-group">
     <%= f.label :telephone, 'Phone Number' %>
     <small>(optional)</small>
-    <%= f.text_field :telephone, autofocus: true, :class => 'form-control', :maxlength => 255 %>
+    <%= f.text_field :telephone, autofocus: true, :id => 'telephone', :class => 'form-control', :maxlength => 255 %>
+    <div class="invalid-feedback" id="telephone-error"></div>
   </div>
 
   <div class="form-group">
@@ -37,12 +40,13 @@
 
   <div class="form-group">
     <%= f.label :message %>
-    <%= f.text_area :message, autofocus: true, :class => 'form-control', :rows => 5 %>
+    <%= f.text_area :message, autofocus: true, :id => 'message', :class => 'form-control', :rows => 5 %>
+    <div class="invalid-feedback" id="message-error"></div>
   </div>
 
   <br/>
 
   <div class="actions">
-    <%= f.submit "Send message", :class => 'btn btn-primary', :role => "button" %>
+    <%= f.submit "Send message", :id => 'submit', :class => 'btn btn-primary', :role => "button" %>
   </div>
 <% end %>
