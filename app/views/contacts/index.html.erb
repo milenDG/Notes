@@ -1,38 +1,48 @@
 <h1>Contacts</h1>
-<section class="container">
-  <%= form_for Mail.new, method: 'post' do |f|%>
+<%= form_with(model: @mail, local: true, url: mail_send_path) do |f|%>
 
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, autofocus: true, :class => 'form-control', :maxlength => 255 %>
-    </div>
+  <% if @mail.errors.any? %>
+    <div id="error_explanation" class="container">
+      <h2><%= pluralize(@mail.errors.count, "error") %> prohibited this mail from being sent:</h2>
 
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email, autofocus: true, autocomplete: "email", :class => 'form-control', :maxlength => 255 %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :telephone, 'Phone Number' %>
-      <small>(optional)</small>
-      <%= f.text_field :telephone, autofocus: true, :class => 'form-control', :maxlength => 255 %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :title %>
-      <small>(optional)</small>
-      <%= f.text_field :title, autofocus: true, :class => 'form-control', :maxlength => 255 %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :message %>
-      <%= f.text_area :message, autofocus: true, :class => 'form-control', :rows => 5 %>
-    </div>
-
-    <br/>
-
-    <div class="actions">
-      <%= f.submit "Send message", :class => 'btn btn-primary', :role => "button" %>
+      <ul>
+        <% @mail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
-</section>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, :class => 'form-control', :maxlength => 255 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", :class => 'form-control', :maxlength => 255 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :telephone, 'Phone Number' %>
+    <small>(optional)</small>
+    <%= f.text_field :telephone, autofocus: true, :class => 'form-control', :maxlength => 255 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <small>(optional)</small>
+    <%= f.text_field :title, autofocus: true, :class => 'form-control', :maxlength => 255 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :message %>
+    <%= f.text_area :message, autofocus: true, :class => 'form-control', :rows => 5 %>
+  </div>
+
+  <br/>
+
+  <div class="actions">
+    <%= f.submit "Send message", :class => 'btn btn-primary', :role => "button" %>
+  </div>
+<% end %>

@@ -16,6 +16,9 @@ $light_blue: #B3C4C7;
 }
 
 .note-text{
+  min-height: 150px;
+  padding-left: 5px;
+  padding-right: 5px;
   background: repeating-linear-gradient(
                   to bottom,
                   lightgoldenrodyellow,

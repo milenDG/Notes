@@ -5,7 +5,7 @@ class NotebooksController < ApplicationController
   # GET /notebooks
   # GET /notebooks.json
   def index
-    @notebooks = Notebook.joins(:user).where(user: current_user)
+    @notebooks = current_user.notebooks
   end
 
   # GET /notebooks/1
@@ -78,6 +78,7 @@ class NotebooksController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_notebook
       @notebook = Notebook.find(params[:id])

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :notebooks
   get 'home/index'
   get 'contacts/index'
+  post 'mail/send', to: 'contacts#send_mail'
 
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'

@@ -5,7 +5,6 @@
 
       <ul>
       <% note.errors.full_messages.each do |message| %>
-          <% puts note.errors.details[:title].inspect %>
         <li><%= message %></li>
       <% end %>
       </ul>

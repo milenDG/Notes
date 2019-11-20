@@ -5,7 +5,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.joins(:notebook => :user).where(notebooks: {user: current_user})
+    @notebooks = current_user.notebooks
   end
 
   # GET /notes/1

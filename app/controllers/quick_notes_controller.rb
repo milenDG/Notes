@@ -5,7 +5,7 @@ class QuickNotesController < ApplicationController
   # GET /quick_notes
   # GET /quick_notes.json
   def index
-    @quick_notes = QuickNote.joins(:user).where(user: current_user)
+    @quick_notes = current_user.quick_notes
   end
 
   # GET /quick_notes/1
@@ -69,7 +69,6 @@ class QuickNotesController < ApplicationController
     if @quick_note.user != current_user
       not_found
     end
-
 
     @quick_note.destroy
     respond_to do |format|

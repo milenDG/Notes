@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_183240) do
+ActiveRecord::Schema.define(version: 2019_11_20_005959) do
 
   create_table "mails", force: :cascade do |t|
     t.string "name", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_183240) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
-    t.index ["title"], name: "index_notebooks_on_title", unique: true
+    t.index ["title", "user_id"], name: "index_notebooks_on_title_and_user_id", unique: true
     t.index ["user_id"], name: "index_notebooks_on_user_id"
   end
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_183240) do
     t.datetime "updated_at", null: false
     t.integer "notebook_id", null: false
     t.index ["notebook_id"], name: "index_notes_on_notebook_id"
-    t.index ["title"], name: "index_notes_on_title", unique: true
+    t.index ["title", nil], name: "index_notes_on_title_and_user_id", unique: true
   end
 
   create_table "quick_notes", force: :cascade do |t|
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_183240) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
-    t.index ["title"], name: "index_quick_notes_on_title", unique: true
+    t.index ["title", "user_id"], name: "index_quick_notes_on_title_and_user_id", unique: true
     t.index ["user_id"], name: "index_quick_notes_on_user_id"
   end
 

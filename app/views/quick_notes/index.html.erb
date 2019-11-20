@@ -1,31 +1,26 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Quick Notes</h1>
+<p>
+  Quick Notes are the place where you can store all your thoughts on the spur of the moment; ToDo lists; plans and everything else you want. If you want to have order in your notes, you should use normal notes and notebooks to separate them (like folders). Here you can find only quicknotes.
+</p>
+<small>(If you need order among your notes, use Normal Notes:)</small>
+<%= link_to "Notes", notes_path, :class => "btn btn-secondary", :role => "button"%>
+<hr/>
+<% if @quick_notes.exists? %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Subtitle</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <h2>My Quicknotes:</h2>
+  <div class="row">
     <% @quick_notes.each do |quick_note| %>
-      <tr>
-        <td><%= quick_note.title %></td>
-        <td><%= quick_note.subtitle %></td>
-        <td><%= quick_note.content %></td>
-        <td><%= link_to 'Show', quick_note %></td>
-        <td><%= link_to 'Edit', edit_quick_note_path(quick_note) %></td>
-        <td><%= link_to 'Destroy', quick_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+      <%= render 'quick_note', quick_note: quick_note %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <hr/>
+  <p>If you want to create another one: </p>
 
-<br>
+<% else %>
 
-<%= link_to 'New Quick Note', new_quick_note_path %>
+  <p>You currently have no Quicknotes! If you want to create one click here: </p>
+
+<% end %>
+
+<%= link_to "Create Quicknote", new_quick_note_path, :class => 'btn btn-primary', :role => 'button' %>

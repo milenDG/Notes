@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, autofocus: true, :class => 'form-control', :maxlength => 255 %>
   </div>
 
-  <div class="field">
-    <%= form.label :subtitle %>
-    <%= form.text_field :subtitle %>
+  <div class="form-group">
+    <%= form.label :subtitle %> <small>(optional)</small>
+    <%= form.text_field :subtitle, autofocus: true, :class => 'form-control', :maxlength => 255 %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, autofocus: true, :class => 'form-control', :rows => 7 %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "#{action} QuickNote", :class => 'btn btn-primary', :role => "button" %>
   </div>
 <% end %>

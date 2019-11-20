@@ -1,0 +1,18 @@
+<section class="col-xm-12 col-sm-9 col-md-12 col-lg-9 col-xl-6 mt-2 note-holder">
+  <div class="container note rounded-img mb-3">
+    <h2 class="text-center">
+      <%= quick_note.title %>
+      <hr style="margin-top:8px; margin-bottom: 0"/>
+      <small class="font_italic secondary-text" style="font-size: 17pt; max-font-size: 5vp;"><%= quick_note.subtitle %></small>
+    </h2>
+    <div class="overflow-auto" style="border-radius: 10px; height: 50%; max-height: 200px;">
+      <div class="note-text">
+        <%= quick_note.content %>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <%= link_to 'Edit Quicknote', edit_note_path(quick_note), :class => "btn btn-primary"%>
+    <%= link_to 'Delete Quicknote', quick_note, method: :delete, data: { confirm: "Are you sure you want to delete Note '#{quick_note.title}'?" }, :class => "btn btn-danger" %>
+  </div>
+</section>

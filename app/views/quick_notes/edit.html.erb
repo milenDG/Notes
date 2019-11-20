@@ -1,6 +1,7 @@
 <h1>Editing Quick Note</h1>
 
-<%= render 'form', quick_note: @quick_note %>
+<%= render 'form', quick_note: @quick_note, action: "Edit" %>
 
-<%= link_to 'Show', @quick_note %> |
-<%= link_to 'Back', quick_notes_path %>
+<hr/>
+<%= link_to 'Show', @quick_note, :class => "btn btn-info" %> |
+<%= link_to 'Back', quick_notes_path, :class => "btn btn-secondary" %>

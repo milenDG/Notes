@@ -4,12 +4,12 @@
 </p>
 <small>(If you just want to write a note fast, use QuickNotes:)</small>
 <%= link_to "QuickNotes", quick_notes_path, :class => "btn btn-secondary", :role => "button"%>
-</hr>
-<% if @notes.exists? %>
+<hr/>
+<% if current_user.notes.exists? %>
 
   <h2>My notes:</h2>
 
-    <% Notebook.joins(:notes).all.each do |notebook| %>
+    <% @notebooks.all.each do |notebook| %>
 
       <h3 class="text-center">
         <%= notebook.title %>
