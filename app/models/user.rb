@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :notebooks, dependent: :destroy
   has_many :notes, through: :notebooks
   has_many :quick_notes
+  has_many :sent_mails
 end

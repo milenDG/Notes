@@ -6,8 +6,10 @@
       <small class="font_italic secondary-text" style="font-size: 17pt; max-font-size: 5vp;"><%= notebook.subtitle %></small>
     </h2>
     <br/>
-    <div class="container overflow-auto" style="background-color: lightgoldenrodyellow; border-radius: 10px; height: 50%; max-height: 200px;">
-      <%= notebook.description %>
+    <div class="overflow-auto" style="background-color: lightgoldenrodyellow; border-radius: 10px; height: 50%; max-height: 200px;">
+        <div class="note-text text-justify">
+          <%= notebook.description %>
+        </div>
     </div>
   </div>
   <div class="text-center">

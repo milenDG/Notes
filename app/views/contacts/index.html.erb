@@ -1,12 +1,12 @@
 <h1>Contacts</h1>
-<%= form_with(model: @mail, local: true, url: mail_send_path, :html => { :onsubmit => 'return validateMail()' }) do |f|%>
+<%= form_with(model: @sent_mail, local: true, url: mail_send_path, :html => { :onsubmit => 'return validateMail()' }) do |f|%>
 
-  <% if @mail.errors.any? %>
+  <% if @sent_mail.errors.any? %>
     <div id="error_explanation" class="container">
       <h2><%= pluralize(@mail.errors.count, "error") %> prohibited this mail from being sent:</h2>
 
       <ul>
-        <% @mail.errors.full_messages.each do |message| %>
+        <% @sent_mail.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -15,13 +15,13 @@
 
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, :id => 'name', :class => 'form-control', :maxlength => 255 %>
+    <%= f.text_field :name, autofocus: true, :value => current_user.name, :id => 'name', :class => 'form-control', :maxlength => 255 %>
     <div class="invalid-feedback" id="name-error"></div>
   </div>
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.text_field :email, autofocus: true, autocomplete: "email", :id => 'email', :class => 'form-control', :maxlength => 255 %>
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", :value => current_user.email,  :id => 'email', :class => 'form-control', :maxlength => 255 %>
     <div class="invalid-feedback" id="email-error"></div>
   </div>
 
