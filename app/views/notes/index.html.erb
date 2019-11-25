@@ -15,13 +15,21 @@
         <%= notebook.title %>
       </h3>
       <br/>
-      <div class="row">
-      <% notebook.notes.each do |note| %>
 
-        <%= render 'note', note: note %>
+        <% if notebook.notes.exists? %>
+          <div class="row">
+          <% notebook.notes.each do |note| %>
 
-      <% end %>
-      </div>
+            <%= render 'note', note: note %>
+
+          <% end %>
+          </div>
+        <% else %>
+          <div class="container">
+            <p>This notebook is empty. If you want to create a note in this notebook, click 'Create Note' below.</p>
+          </div>
+        <% end %>
+
       <hr/>
     <% end %>
   <p>If you want to create another one: </p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Notes</title>
+    <title><%= t('app_title') %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,43 +14,43 @@
       <a href="/">
         <img src="/images/logo.png" class="float-left mr-0 mr-md-2 clickable-img" alt="logo" height="40" width="40">
       </a>
-      <a class="navbar-brand font-weight-bold" href="/">Notes</a>
+      <a class="navbar-brand font-weight-bold" href="/"><%= t('app_title') %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li controller="home" class="nav-item">
-            <%= link_to 'Home', home_index_path, :class => 'nav-link' %>
+            <%= link_to t('nav_links.home_nav_link'), home_index_path, :class => 'nav-link' %>
           </li>
           <li controller="notebooks" class="nav-item">
-            <%= link_to 'Notebooks', notebooks_path, :class => 'nav-link' %>
+            <%= link_to t('nav_links.notebooks_nav_link'), notebooks_path, :class => 'nav-link' %>
           </li>
           <li controller="notes" class="nav-item">
-            <%= link_to 'Notes', notes_path, :class => 'nav-link' %>
+            <%= link_to t('nav_links.notes_nav_link'), notes_path, :class => 'nav-link' %>
           </li>
           <li controller="quick_notes" class="nav-item">
-            <%= link_to 'QuickNotes', quick_notes_path, :class => 'nav-link' %>
+            <%= link_to t('nav_links.quicknotes_nav_link'), quick_notes_path, :class => 'nav-link' %>
           </li>
           <li controller="contacts" class="nav-item">
-            <%= link_to 'Contacts', contacts_index_url, :class => 'nav-link' %>
+            <%= link_to t('nav_links.contacts_nav_link'), contacts_index_url, :class => 'nav-link' %>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li controller="users" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><%= current_user.email %></strong></a>
-              <div class="dropdown-menu" style="margin-top: 0px;">
-                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item' %>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-item' %>
+              <div class="dropdown-menu">
+                <%= link_to t('nav_links.edit_profile_nav_link'), edit_user_registration_path, :class => 'dropdown-item' %>
+                <%= link_to t('nav_links.logout_nav_link'), destroy_user_session_path, method: :delete, :class => 'dropdown-item' %>
               </div>
             </li>
           <% else %>
             <li controller="users" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Not Signed</strong></a>
-              <div class="dropdown-menu" style="margin-top: 0px;">
-                <%= link_to "Log In", new_user_session_path, :class => 'dropdown-item' %>
-                <%= link_to "Register", new_user_registration_path, :class => 'dropdown-item' %>
+              <div class="dropdown-menu">
+                <%= link_to t('nav_links.login_nav_link'), new_user_session_path, :class => 'dropdown-item' %>
+                <%= link_to t('nav_links.register_nav_link'), new_user_registration_path, :class => 'dropdown-item' %>
               </div>
             </li>
           <% end %>
@@ -79,39 +79,39 @@
 
     <footer id="footer" class=" pt-4">
       <div class="container">
-        <h2 class="text-center">Notes Application</h2>
-        <p class="text-center">A place where you can store all your notes, thoughts, ToDo Lists and everything else you want!</p>
+        <h2 class="text-center"><%= t('footer.title') %></h2>
+        <p class="text-center"><%= t('footer.app_description') %></p>
       </div>
       <hr style="margin: 10px !important" />
       <div class="container-fluid text-center text-md-left">
         <div class="row">
           <div class="col-md-5 mt-md-0 mt-3">
-            <h5 class="text-uppercase">Milen Georgiev (Creator)</h5>
-            <p style="margin-bottom: 8px !important">Software Engineer and student at University of Surrey.</p>
+            <h5 class="text-uppercase"><%= t('footer.creator_name') %></h5>
+            <p style="margin-bottom: 8px !important"><%= t('footer.creator_description') %></p>
             <a href="https://www.surrey.ac.uk/" target="_blank">
               <img class="svg" src="/svg/university-of-surrey.svg" height="50" alt="University of Surrey">
             </a>
           </div>
           <hr class="clearfix w-100 d-md-none pb-3">
           <div class="col-md-4 mb-md-0 mb-3">
-            <h5 class="text-uppercase">Emails</h5>
+            <h5 class="text-uppercase"><%= t('footer.emails.emails_title') %></h5>
             <ul class="list-unstyled">
               <li>
                 <a class="footer-text-link" href="mailto:milendg99@gmail.com" target="_top">
-                  milendg99@gmail.com
+                  <%= t('footer.emails.personal') %>
                 </a>
-                (Personal email)
+                <%= t('footer.emails.personal_description') %>
               </li>
               <li>
                 <a class="footer-text-link" href="mailto:mg00929@surrey.ac.uk" target="_top">
-                  mg00929@surrey.ac.uk
+                  <%= t('footer.emails.university') %>
                 </a>
-                (University email)
+                <%= t('footer.emails.university_description') %>
               </li>
             </ul>
           </div>
           <div class="col-md-3 mb-md-0 mb-3">
-            <h5 class="text-uppercase">Social networks</h5>
+            <h5 class="text-uppercase"><%= t('footer.social_media_title') %></h5>
             <div class="list-unstyled">
               <a href="https://www.linkedin.com/in/milen-georgiev1/" target="_blank">
                 <img class="svg" src="/svg/linkedin-in-brands.svg" height="40" alt="LinkedIn.com">
@@ -131,16 +131,17 @@
       </div>
       <hr style="margin: 10px !important" />
       <div class="text-center py-3">
-        The site is published on my Github account in repository
-        <a class="footer-text-link" href="https://github.com/milenDG/Notes" target="_blank">Notes</a>.
-        <br />© 2019 Copyright:
-        <a class="footer-text-link" href="https://www.linkedin.com/in/milen-georgiev1/" target="_blank"> Milen Georgiev</a>
+        <%= t('footer.github_description') %>
+        <a class="footer-text-link" href="https://github.com/milenDG/Notes" target="_blank"><%= t('app_title') %></a>.
+        <br />
+        <%= t('footer.copyrights.description') %>
+        <a class="footer-text-link" href="https://www.linkedin.com/in/milen-georgiev1/" target="_blank"><%= t('footer.copyrights.name') %></a>
       </div>
     </footer>
 
     <div class="alert text-center cookiealert cookiehide" role="alert">
-      <b>Cookie Notice</b> <img src="/svg/cookie.svg" width="25" alt="cookie.svg" style="padding-right: 5px;"> The site uses cookies to ensure you get the best experience. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
-      <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">I agree</button>
+      <b><%= t('cookie_notice.title') %></b> <img src="/svg/cookie.svg" width="25" alt="cookie.svg" style="padding-right: 5px;"><%= t('cookie_notice.consent') %><a href="https://cookiesandyou.com/" target="_blank"><%= t('cookie_notice.learn') %></a>
+      <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close"><%= t('cookie_notice.agree') %></button>
     </div>
   </body>
 </html>

@@ -1,2 +1,26 @@
-<h1>Home#home</h1>
-<p>Find me in app/views/home/home.html.erb</p>
+<h1><%= t('home.title') %></h1>
+<div class="container">
+  <p><%= t('home.first_paragraph') %></p>
+  <p><%= t('home.second_paragraph') %></p>
+  <ul>
+    <li><%= t('home.list.first') %></li>
+    <li><%= t('home.list.second') %></li>
+    <li><%= t('home.list.third') %></li>
+  </ul>
+  <p><%= t('home.third_paragraph') %></p>
+</div>
+<hr/>
+<section class="col-xl-6 mt-2 note-holder">
+  <div class="container note rounded-img mb-3">
+    <h2 class="text-center">
+      <%= t('home.fake_note.title') %>
+      <hr style="margin-top:8px; margin-bottom: 0"/>
+      <small class="font_italic secondary-text" style="font-size: 17pt; max-font-size: 5vp;"><%= t('home.fake_note.subtitle') %></small>
+    </h2>
+    <div class="overflow-auto" style="border-radius: 10px; height: 50%; max-height: 200px;">
+      <div class="note-text text-justify">
+        <%= t('home.fake_note.content') %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -30,4 +30,57 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_title: MyNotes
+  nav_links:
+    home_nav_link: Home
+    notebooks_nav_link: Notebooks
+    notes_nav_link: Notes
+    quicknotes_nav_link: Quicknotes
+    contacts_nav_link: Contacts
+    edit_profile_nav_link: Edit Profile
+    logout_nav_link: Log Out
+    login_nav_link: Log In
+    register_nav_link: Register
+
+  footer:
+    title: MyNotes Application
+    app_description: A place where you can store all your notes, thoughts, ToDo Lists and everything else you want!
+    creator_name: Milen Georgiev (Creator)
+    creator_description: Software Engineer and Student at University of Surrey.
+
+    emails:
+      emails_title: Emails
+      personal: milendg99@gmail.com
+      personal_description: (Personal email)
+      university: mg00929@surrey.ac.uk
+      university_description: (University email)
+
+    social_media_title: Social networks
+    github_description: The site is published on my Github account in repository
+
+    copyrights:
+      description: © 2019 Copyright
+      name: Milen Georgiev
+
+  cookie_notice:
+    title: Cookie Notice
+    consent:  The site uses cookies to ensure you get the best experience.
+    learn: Learn more
+    agree: I agree
+
+  home:
+    title: Home
+    first_paragraph: Everyone has something on their mind on every moment of their lives. You also have one. If you think your current thoughts are important and deserve to be remembered, this app would be of a great value to you.
+    second_paragraph: MyNotes is an application where you are totally free to decide what you want to write in your notes. It is all up to you and your wish.
+
+    list:
+      first: If you need to create some ToDo lists - you can do it here.
+      second: If you need to save your memories and thoughts - you can do it here.
+      third: If you want to write a poem or even a whole book - you can do it here.
+
+    third_paragraph: How you can use this application is only up to you. I hope that you will like it and use it in what way suits you.
+
+    fake_note:
+      title: Title Example
+      subtitle: Subtitle Example
+      content: You can write whatever you would like in My Notes. Never again will you forget what your thoughts are and everything is totally private only to yourself. A place where you can store all your notes, thoughts, ToDo Lists and everything else you want!
