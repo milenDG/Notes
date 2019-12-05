@@ -3,8 +3,8 @@ class SentMail < ApplicationRecord
   EMAIL_REGEX = %r{\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\Z}.freeze
 
   validates :name, :email, :message, presence: true
-  validates :email, format: {with: EMAIL_REGEX, message: '- enter a correct email!'}
-  validates :telephone, format: {with: PHONE_NUMBER_REGEX, message: '- enter a correct phone number or do not enter any!'}
+  validates :email, format: {with: EMAIL_REGEX, message: I18n.t('email_validation_feedback') }
+  validates :telephone, format: {with: PHONE_NUMBER_REGEX, message: I18n.t('models.email.telephone_validation_feedback') }
 
   belongs_to :user
 end

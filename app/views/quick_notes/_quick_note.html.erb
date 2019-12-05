@@ -13,6 +13,6 @@
   </div>
   <div class="text-center">
     <%= link_to 'Edit Quicknote', edit_note_path(quick_note), :class => "btn btn-primary"%>
-    <%= link_to 'Delete Quicknote', quick_note, method: :delete, data: { confirm: "Are you sure you want to delete Note '#{quick_note.title}'?" }, :class => "btn btn-danger" %>
+    <%= link_to 'Delete Quicknote', quick_note, method: :delete, data: { confirm: "#{t('quicknotes.delete_prompt')} '#{quick_note.title}'?" }, :class => "btn btn-danger" %>
   </div>
 </section>

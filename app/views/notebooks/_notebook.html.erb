@@ -14,6 +14,6 @@
   </div>
   <div class="text-center">
     <%= link_to 'Edit notebook', edit_notebook_path(notebook), :class => "btn btn-primary"%>
-    <%= link_to 'Delete notebook', notebook, method: :delete, data: { confirm: "Are you sure you want to delete Notebook '#{notebook.title}'?" }, :class => "btn btn-danger" %>
+    <%= link_to 'Delete notebook', notebook, method: :delete, data: { confirm: "#{t('notebooks.delete_prompt')}'#{notebook.title}'?" }, :class => "btn btn-danger" %>
   </div>
 </section>

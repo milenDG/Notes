@@ -1,9 +1,9 @@
-<h1>Contacts</h1>
+<h1><%= t('contacts.title') %></h1>
 <%= form_with(model: @sent_mail, local: true, url: mail_send_path, :html => { :onsubmit => 'return validateMail()' }) do |f|%>
 
   <% if @sent_mail.errors.any? %>
     <div id="error_explanation" class="container">
-      <h2><%= pluralize(@mail.errors.count, "error") %> prohibited this mail from being sent:</h2>
+      <h2><%= pluralize(@mail.errors.count, "error") %> <%= t('contacts.validation_error') %></h2>
 
       <ul>
         <% @sent_mail.errors.full_messages.each do |message| %>
@@ -13,7 +13,7 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <div class=sd"form-group">
     <%= f.label :name %>
     <%= f.text_field :name, autofocus: true, :value => current_user.name, :id => 'name', :class => 'form-control', :maxlength => 255 %>
     <div class="invalid-feedback" id="name-error"></div>
@@ -27,14 +27,14 @@
 
   <div class="form-group">
     <%= f.label :telephone, 'Phone Number' %>
-    <small>(optional)</small>
+    <small><%= t('contacts.optional_form') %></small>
     <%= f.text_field :telephone, autofocus: true, :id => 'telephone', :class => 'form-control', :maxlength => 255 %>
     <div class="invalid-feedback" id="telephone-error"></div>
   </div>
 
   <div class="form-group">
     <%= f.label :title %>
-    <small>(optional)</small>
+    <small><%= t('contacts.optional_form') %></small>
     <%= f.text_field :title, autofocus: true, :class => 'form-control', :maxlength => 255 %>
   </div>
 

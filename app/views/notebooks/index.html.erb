@@ -1,13 +1,11 @@
-<h1>Notebooks</h1>
-<p>
-  Notebooks are the place where your notes are stored. If you want to have order in your notes, you should use notebooks to separate them (like folders).
-</p>
-<small>If not just use QuickNotes: </small>
+<h1><%= t('notebooks.title') %></h1>
+<p><%= t('notebooks.index_description') %></p>
+<small><%= t('notebooks.use_quicknotes') %></small>
 <%= link_to "QuickNotes", quick_notes_path, :class => "btn btn-secondary", :role => "button"%>
 <hr/>
 <% if @notebooks.exists? %>
 
-  <h2>My notesbooks:</h2>
+  <h2><%= t('notebooks.my_notebooks_title') %></h2>
   <div class="row">
     <% @notebooks.each do |notebook| %>
 
@@ -15,12 +13,12 @@
     <% end %>
   </div>
   <hr/>
-  <p>If you want to create another one: </p>
+  <p><%= t('notebooks.create_notebook') %></p>
 
 <%else %>
 
-  <p>You currently have no notes! If you want to create one click here: </p>
+  <p><%= t('notebooks.no_notebooks') %></p>
   <br/>
 
 <%end %>
-<%= link_to "Create notebook", new_notebook_path, :class => 'btn btn-primary', :role => 'button' %>
+<%= link_to "#{t('notebooks.create_notebook_button')}", new_notebook_path, :class => 'btn btn-primary', :role => 'button' %>

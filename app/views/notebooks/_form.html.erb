@@ -2,7 +2,7 @@
 
   <% if notebook.errors.any? %>
     <div id="error_explanation" class="container">
-      <h2><%= pluralize(notebook.errors.count, "error") %> prohibited this notebook from being saved:</h2>
+      <h2><%= pluralize(notebook.errors.count, "error") %> <%= t('notebooks.validation_error') %></h2>
 
       <ul>
       <% notebook.errors.full_messages.each do |message| %>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :subtitle %> <small>(optional)</small>
+    <%= form.label :subtitle %> <small><%= t('contacts.optional_form') %></small>
     <%= form.text_field :subtitle, autofocus: true, :class => 'form-control', :maxlength => 255 %>
   </div>
 

@@ -31,6 +31,15 @@
 
 en:
   app_title: MyNotes
+
+  address:
+    title: Address
+    location: University of Surrey
+    town: Guildford
+    county: Surrey
+    country: united Kingdom
+    postcode: GU2 7XH
+
   nav_links:
     home_nav_link: Home
     notebooks_nav_link: Notebooks
@@ -84,3 +93,78 @@ en:
       title: Title Example
       subtitle: Subtitle Example
       content: You can write whatever you would like in My Notes. Never again will you forget what your thoughts are and everything is totally private only to yourself. A place where you can store all your notes, thoughts, ToDo Lists and everything else you want!
+
+  notebooks:
+    title: Notebooks
+    validation_error: 'prohibited this notebook from being saved:'
+    delete_prompt: 'Are you sure you want to delete Notebook '
+    edit_title: Editing Notebook
+    index_description: Notebooks are the place where your notes are stored. If you want to have order in your notes, you should use notebooks to separate them (like folders).
+    use_quicknotes: 'If not just use QuickNotes:'
+    my_notebooks_title: 'My notebooks:'
+    create_notebook: 'If you want to create another one:'
+    no_notebooks: 'You currently have no Notebooks! If you want to create one click here:'
+    create_notebook_button: Create Notebook
+    new_notebook: New Notebook
+    show_notebook_title: 'Notebook:'
+
+  notes:
+    title: Notes
+    validation_error: 'prohibited this note from being saved:'
+    delete_prompt: 'Are you sure you want to delete Note '
+    edit_title: Editing Note
+    index_description: Note are the place where you can store all your thoughts; ToDo lists; plans and everything else you want. If you want to have order in your notes, you should use notebooks to separate them (like folders). Here you can find only notes in a notebook.
+    use_quicknotes: '(If you just want to write a note fast, use QuickNotes:)'
+    my_notes_title: 'My notes:'
+    empty_notebook: This notebook is empty. If you want to create a note in this notebook, click 'Create Note' below.
+    create_note: 'If you want to create another one:'
+    no_notes: 'You currently have no Notes! If you want to create one click here:'
+    create_note_button: Create note
+    new_note: New Note
+    no_notebook: You currently have no Notes to put your notes into. If you want to create notes you should either create a Notebook first or create a QuickNote.
+    show_note_title: 'Note:'
+
+  quicknotes:
+    title: QuickNotes
+    validation_error: 'prohibited this QuickNote from being saved:'
+    delete_prompt: 'Are you sure you want to delete QuickNote '
+    edit_title: Editing QuickNote
+    index_description: Quick Notes are the place where you can store all your thoughts on the spur of the moment; ToDo lists; plans and everything else you want. If you want to have order in your notes, you should use normal notes and notebooks to separate them (like folders). Here you can find only quicknotes.
+    use_notes: '(If you need order among your notes, use Normal Notes:)'
+    my_quicknotes_title: 'My QuickNotes:'
+    create_quicknote: 'If you want to create another one:'
+    no_quicknotes: 'You currently have no QuickNotes! If you want to create one click here:'
+    create_quicknote_button: Create QuickNote
+    new_quicknote: New QuickNote
+    show_quicknote_title: 'QuickNote:'
+
+  contacts:
+    title: Contacts
+    validation_error: 'prohibited this mail from being sent:'
+    optional_form: (optional)
+
+  models:
+    email:
+      email_validation_feedback: '- enter a correct email!'
+      telephone_validation_feedback: '- enter a correct phone number or do not enter any!'
+
+  controllers:
+    not_found: There is no such item.
+    contacts:
+      send_success: Your mail was sent successfully.
+      send_fail: Message was not sent!
+
+    notebooks:
+      create: Notebook was successfully created.
+      update: Notebook was successfully updated.
+      destroy: Notebook was successfully destroyed.
+
+    notes:
+      create: Note was successfully created.
+      update: Note was successfully updated.
+      destroy: Note was successfully destroyed.
+
+    quicknotes:
+      create: QuickNote was successfully created.
+      update: QuickNote was successfully updated.
+      destroy: QuickNote was successfully destroyed.

@@ -36,7 +36,7 @@ class NotebooksController < ApplicationController
 
     respond_to do |format|
       if @notebook.save
-        format.html { redirect_to @notebook, notice: 'Notebook was successfully created.' }
+        format.html { redirect_to @notebook, notice: I18n.t('controllers.notebooks.create') }
         format.json { render :show, status: :created, location: @notebook }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class NotebooksController < ApplicationController
 
     respond_to do |format|
       if @notebook.update(notebook_params)
-        format.html { redirect_to @notebook, notice: 'Notebook was successfully updated.' }
+        format.html { redirect_to @notebook, notice: I18n.t('controllers.notebooks.update') }
         format.json { render :show, status: :ok, location: @notebook }
       else
         format.html { render :edit }
@@ -72,7 +72,7 @@ class NotebooksController < ApplicationController
 
     @notebook.destroy
     respond_to do |format|
-      format.html { redirect_to notebooks_url, notice: 'Notebook was successfully destroyed.' }
+      format.html { redirect_to notebooks_url, notice: I18n.t('controllers.notebooks.destroy') }
       format.json { head :no_content }
     end
   end

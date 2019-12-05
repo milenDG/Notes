@@ -14,9 +14,9 @@ class ContactsController < ApplicationController
 
     if @sent_mail.save
       ContactMailer.contact_email(mail_params[:email], mail_params[:name], mail_params[:telephone], mail_params[:title], mail_params[:message]).deliver_now
-      redirect_to home_index_path, notice: 'Your mail was sent successfully.'
+      redirect_to home_index_path, notice: I18n.t('controllers.contacts.send_success')
     else
-      render :index, alert: 'Message was not sent'
+      render :index, alert: I18n.t('controllers.contacts.send_fail')
     end
   end
 

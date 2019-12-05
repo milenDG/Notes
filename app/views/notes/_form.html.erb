@@ -1,7 +1,7 @@
 <%= form_with(model: note, local: true, :html => { :onsubmit => 'return validateForm()' }) do |form|%>
   <% if note.errors.any? %>
-    <div id="error_explanation" class="contianer">
-      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+    <div id="error_explanation" class="container">
+      <h2><%= pluralize(note.errors.count, "error") %> <%= t('notes.validation_error') %></h2>
 
       <ul>
       <% note.errors.full_messages.each do |message| %>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :subtitle %> <small>(optional)</small>
+    <%= form.label :subtitle %> <small><%= t('contacts.optional_form')%></small>
     <%= form.text_field :subtitle, autofocus: true, :class => 'form-control', :maxlength => 255 %>
   </div>
 

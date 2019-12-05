@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def not_found
-    flash[:alert] = "There is no such item."
+    flash[:alert] = I18n.t('controllers.not_found')
     redirect_to root_path
   end
 

@@ -36,7 +36,7 @@ class QuickNotesController < ApplicationController
 
     respond_to do |format|
       if @quick_note.save
-        format.html { redirect_to @quick_note, notice: 'Quick note was successfully created.' }
+        format.html { redirect_to @quick_note, notice: I18n.t('controllers.quicknotes.create') }
         format.json { render :show, status: :created, location: @quick_note }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class QuickNotesController < ApplicationController
 
     respond_to do |format|
       if @quick_note.update(quick_note_params)
-        format.html { redirect_to @quick_note, notice: 'Quick note was successfully updated.' }
+        format.html { redirect_to @quick_note, notice: I18n.t('controllers.quicknotes.update') }
         format.json { render :show, status: :ok, location: @quick_note }
       else
         format.html { render :edit }
@@ -72,7 +72,7 @@ class QuickNotesController < ApplicationController
 
     @quick_note.destroy
     respond_to do |format|
-      format.html { redirect_to quick_notes_url, notice: 'Quick note was successfully destroyed.' }
+      format.html { redirect_to quick_notes_url, notice: I18n.t('controllers.quicknotes.destroy') }
       format.json { head :no_content }
     end
   end

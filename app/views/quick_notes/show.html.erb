@@ -1,8 +1,8 @@
-<h1>Quick Note: <%= @quick_note.title %></h1>
+<h1><%= t('quicknotes.show_quicknote_title') %> <%= @quick_note.title %></h1>
 
 <br/>
 
 <%= render 'quick_note', quick_note: @quick_note %>
 
 <hr/>
-<%= link_to 'Back to QuickNotes', quick_notes_path, :class => "btn btn-secondary" %>
+<%= link_to "Back to #{t('quicknotes.title')}", quick_notes_path, :class => "btn btn-secondary" %>

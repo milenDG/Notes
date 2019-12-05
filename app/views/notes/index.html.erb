@@ -1,13 +1,11 @@
-<h1>Notes</h1>
-<p>
-  Note are the place where you can store all your thoughts; ToDo lists; plans and everything else you want. If you want to have order in your notes, you should use notebooks to separate them (like folders). Here you can find only notes in a notebook.
-</p>
-<small>(If you just want to write a note fast, use QuickNotes:)</small>
+<h1><%= t('notes.title') %></h1>
+<p><%= t('notes.index_description') %></p>
+<small><%= t('notes.use_quicknotes') %></small>
 <%= link_to "QuickNotes", quick_notes_path, :class => "btn btn-secondary", :role => "button"%>
 <hr/>
 <% if current_user.notes.exists? %>
 
-  <h2>My notes:</h2>
+  <h2><%= t('notes.my_notes_title') %></h2>
 
     <% @notebooks.all.each do |notebook| %>
 
@@ -26,18 +24,18 @@
           </div>
         <% else %>
           <div class="container">
-            <p>This notebook is empty. If you want to create a note in this notebook, click 'Create Note' below.</p>
+            <p><%= t('notes.empty_notebook') %></p>
           </div>
         <% end %>
 
       <hr/>
     <% end %>
-  <p>If you want to create another one: </p>
+  <p><%= t('notes.create_note') %></p>
 
 <% else %>
 
-  <p>You currently have no notes! If you want to create one click here: </p>
+  <p><%= t('notes.no_notes') %></p>
 
 <% end %>
 
-<%= link_to "Create note", new_note_path, :class => 'btn btn-primary', :role => 'button' %>
+<%= link_to "#{t('notes.create_note_button')}", new_note_path, :class => 'btn btn-primary', :role => 'button' %>
