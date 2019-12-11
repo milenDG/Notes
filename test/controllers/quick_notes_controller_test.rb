@@ -27,7 +27,7 @@ class QuickNotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create quick_note" do
     assert_difference('QuickNote.count') do
-      post quick_notes_url, params: { quick_note: { content: @quick_note.content, subtitle: @quick_note.subtitle, title: @quick_note.title } }
+      post quick_notes_url, params: { quick_note: { content: @quick_note.content, subtitle: @quick_note.subtitle, title: @quick_note.title + " new"  } }
     end
 
     assert_redirected_to quick_note_url(QuickNote.last)

@@ -27,7 +27,7 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create note" do
     assert_difference('Note.count') do
-      post notes_url, params: { note: { content: @note.content, subtitle: @note.subtitle, title: @note.title, notebook_id: @note.notebook_id } }
+      post notes_url, params: { note: { content: @note.content, subtitle: @note.subtitle, title: @note.title + " new" , notebook_id: @note.notebook_id } }
     end
 
     assert_redirected_to note_url(Note.last)

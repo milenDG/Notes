@@ -27,7 +27,7 @@ class NotebooksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create notebook" do
     assert_difference('Notebook.count') do
-      post notebooks_url, params: { notebook: { description: @notebook.description, subtitle: @notebook.subtitle, title: @notebook.title } }
+      post notebooks_url, params: { notebook: { description: @notebook.description, subtitle: @notebook.subtitle, title: @notebook.title + " new" } }
     end
 
     assert_redirected_to notebook_url(Notebook.last)
