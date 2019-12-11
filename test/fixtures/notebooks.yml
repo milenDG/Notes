@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  subtitle: MyString
-  description: MyText
+  id: 1
+  title: First Title Notebook
+  subtitle: First Subtitle Notebook
+  description: Description of the First Notebook
+  user_id: 1
 
 two:
-  title: MyString
-  subtitle: MyString
-  description: MyText
+  id: 2
+  title: Second Subtitle Notebook
+  subtitle: Second Subtitle Notebook
+  description: Description of the Second Notebook
+  user_id: 2

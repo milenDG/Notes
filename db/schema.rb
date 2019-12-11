@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_232045) do
     t.datetime "updated_at", null: false
     t.integer "notebook_id", null: false
     t.index ["notebook_id"], name: "index_notes_on_notebook_id"
-    t.index ["title", nil], name: "index_notes_on_title_and_user_id", unique: true
+    t.index ["title"], name: "index_notes_on_title_and_user_id", unique: true
   end
 
   create_table "quick_notes", force: :cascade do |t|

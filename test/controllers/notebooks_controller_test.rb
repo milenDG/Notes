@@ -1,13 +1,23 @@
 require 'test_helper'
 
 class NotebooksControllerTest < ActionDispatch::IntegrationTest
+
   setup do
+    sign_in users(:one)
     @notebook = notebooks(:one)
   end
 
-  test "should get index" do
+  test "should get index if logged" do
     get notebooks_url
+    assert_template partial: '_notebook'
+    assert_template layout: 'application'
     assert_response :success
+  end
+
+  test "should not get index if not logged" do
+    sign_out users(:one)
+    get notebooks_url
+    assert_redirected_to new_user_session_url
   end
 
   test "should get new" do
@@ -25,6 +35,7 @@ class NotebooksControllerTest < ActionDispatch::IntegrationTest
 
   test "should show notebook" do
     get notebook_url(@notebook)
+    assert_template partial: '_notebook'
     assert_response :success
   end
 
@@ -45,4 +56,20 @@ class NotebooksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to notebooks_url
   end
+
+  test "should not show other user notebook" do
+    get notebook_url(notebooks(:two))
+    assert_response :missing
+  end
+
+  test "should not get edit other user notebook" do
+    get edit_notebook_url(notebooks(:two))
+    assert_response :missing
+  end
+
+  test "should not update other user notebook" do
+    get edit_notebook_url(notebooks(:two))
+    assert_response :missing
+  end
+
 end

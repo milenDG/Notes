@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def not_found
     flash[:alert] = I18n.t('controllers.not_found')
-    redirect_to root_path
+    redirect_to root_path, :status => :not_found and return
   end
 
   protected

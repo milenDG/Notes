@@ -31,5 +31,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\milen\Desktop\Notes\db\development.sqlite3</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="test" uuid="7fcd4133-cd40-4e28-bcc5-cd1864f0a683">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\milen\Desktop\Notes\db\test.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>
