@@ -6,7 +6,7 @@ class Note < ApplicationRecord
   validates :title, uniqueness: {scope: :notebook}
 
   # The not belongs to a notebook, where many notes are stored
-  belongs_to :notebook, optional: true
+  belongs_to :notebook
 
   # Add a connection to the user through the notebook
   delegate :user, :to => :notebook

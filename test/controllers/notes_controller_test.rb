@@ -73,18 +73,18 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should have update values prefilled" do
-    get edit_notebook_url(@notebook)
+    get edit_note_url(@note)
     assert_select "h1", "Editing Note"
 
-    assert_select "#title" do
-      assert_select "[value=?]", @notebook.title
+    assert_select "#note_title" do
+      assert_select "[value=?]", @note.title
     end
 
-    assert_select "#notebook_subtitle" do
-      assert_select "[value=?]", @notebook.subtitle
+    assert_select "#note_subtitle" do
+      assert_select "[value=?]", @note.subtitle
     end
 
-    assert_select "#content", @notebook.description
+    assert_select "#note_content", @note.content
   end
 
 end

@@ -21,10 +21,10 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
   test "should have user values prefilled" do
     get contacts_index_url
     assert_select "h1", "Contacts"
-    assert_select "#name" do
+    assert_select "#sent_mail_name" do
       assert_select "[value=?]", users(:one).name
     end
-    assert_select "#email" do
+    assert_select "#sent_mail_email" do
       assert_select "[value=?]", users(:one).email
     end
   end

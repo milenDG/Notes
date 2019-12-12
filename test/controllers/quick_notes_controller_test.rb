@@ -71,4 +71,19 @@ class QuickNotesControllerTest < ActionDispatch::IntegrationTest
     get edit_quick_note_url(quick_notes(:two))
     assert_response :missing
   end
+
+  test "should have update values prefilled" do
+    get edit_quick_note_url(@quick_note)
+    assert_select "h1", "Editing QuickNote"
+
+    assert_select "#quick_note_title" do
+      assert_select "[value=?]", @quick_note.title
+    end
+
+    assert_select "#quick_note_subtitle" do
+      assert_select "[value=?]", @quick_note.subtitle
+    end
+
+    assert_select "#quick_note_content", @quick_note.content
+  end
 end

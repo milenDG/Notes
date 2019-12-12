@@ -76,7 +76,7 @@ class NotebooksControllerTest < ActionDispatch::IntegrationTest
     get edit_notebook_url(@notebook)
     assert_select "h1", "Editing Notebook"
 
-    assert_select "#title" do
+    assert_select "#notebook_title" do
       assert_select "[value=?]", @notebook.title
     end
 
@@ -84,7 +84,7 @@ class NotebooksControllerTest < ActionDispatch::IntegrationTest
       assert_select "[value=?]", @notebook.subtitle
     end
 
-    assert_select "#content", @notebook.description
+    assert_select "#notebook_description", @notebook.description
   end
 
 end
