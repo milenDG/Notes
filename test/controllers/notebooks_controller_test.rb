@@ -72,4 +72,19 @@ class NotebooksControllerTest < ActionDispatch::IntegrationTest
     assert_response :missing
   end
 
+  test "should have update values prefilled" do
+    get edit_notebook_url(@notebook)
+    assert_select "h1", "Editing Notebook"
+
+    assert_select "#title" do
+      assert_select "[value=?]", @notebook.title
+    end
+
+    assert_select "#notebook_subtitle" do
+      assert_select "[value=?]", @notebook.subtitle
+    end
+
+    assert_select "#content", @notebook.description
+  end
+
 end

@@ -71,4 +71,20 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
     get edit_note_url(notes(:two))
     assert_response :missing
   end
+
+  test "should have update values prefilled" do
+    get edit_notebook_url(@notebook)
+    assert_select "h1", "Editing Note"
+
+    assert_select "#title" do
+      assert_select "[value=?]", @notebook.title
+    end
+
+    assert_select "#notebook_subtitle" do
+      assert_select "[value=?]", @notebook.subtitle
+    end
+
+    assert_select "#content", @notebook.description
+  end
+
 end
