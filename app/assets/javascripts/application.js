@@ -38,8 +38,19 @@ $(document).ready(() => {
 // Validates notebook, note and quick_note in the Front-end
 function validateForm() {
     // Extract the values of the form elements
-    let title = $('#title').val();
-    let content = $('#content').val();
+    let currentPath = location.pathname.split("/")[1];
+    currentPath = currentPath.substring(0, currentPath.length - 1)
+
+    const title = $(`#${currentPath}_title`).val();
+    let content;
+
+    // Because the content column in notebooks is called description.
+    if($(`#${currentPath}_content`).length){
+        content = $(`#${currentPath}_content`).val();
+    } else if($(`#${currentPath}_description`).length){
+        content = $(`#${currentPath}_description`).val();
+    }
+    
     let isCorrect = true;
 
     // Specify the errors in the front end
@@ -50,7 +61,7 @@ function validateForm() {
         $('#title-error').text('');
     }
 
-    if(!content ) {
+    if(!content || typeof content === "undefined") {
         $('#content-error').text('Content must not be empty!');
         isCorrect = false;
     } else {
@@ -63,7 +74,7 @@ function validateForm() {
     } else{
         $('.invalid-feedback').css('display', 'block');
         setTimeout(() =>{
-            $('#submit').removeAttr('disabled');
+            $('input[type=submit]').removeAttr('disabled');
         }, 500);
     }
 
