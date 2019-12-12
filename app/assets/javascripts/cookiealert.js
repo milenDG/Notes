@@ -1,14 +1,19 @@
+// Javascript function for displaying the cookie alert
+// Mandatory be EU laws
 function showCookieNotice() {
     "use strict";
 
+    // Find the cookiealert element and the acceptcookies element
     var cookieAlert = document.querySelector(".cookiealert");
     var acceptCookies = document.querySelector(".acceptcookies");
 
+    // If the cookie alert was not found terminate.
     if (!cookieAlert) {
        return;
     }
 
-    cookieAlert.offsetHeight; // Force browser to trigger reflow (https://stackoverflow.com/a/39451131)
+    // Force browser to trigger reflow
+    cookieAlert.offsetHeight;
 
     // Show the alert if we cant find the "acceptCookies" cookie
     if (!getCookie("acceptCookies")) {
@@ -32,6 +37,7 @@ function showCookieNotice() {
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
+    // Get the value of a cookie
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);

@@ -1,5 +1,6 @@
 class ContactMailer < ApplicationMailer
 
+  # Method creating an email and sending it.
   def contact_email(email, name, telephone, title, message)
     @title = title
     @email = email
@@ -7,6 +8,6 @@ class ContactMailer < ApplicationMailer
     @telephone = telephone
     @message = message
 
-    mail cc: @email
+    mail cc: @email, subject: title
   end
 end

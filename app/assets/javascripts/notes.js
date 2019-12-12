@@ -1,3 +1,4 @@
+// When all contents of the html have been loaded by the browser.
 $(document).ready(() => {
     // Make all notes equal in size.
     let maxNoteHeight = Number.MIN_VALUE;

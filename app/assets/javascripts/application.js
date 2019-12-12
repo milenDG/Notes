@@ -22,7 +22,11 @@ $(document).ready(() => {
 
     // Remove alerts after 2 seconds
     window.setTimeout(function() {
-        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $alerts = $(".alert").filter((index, element) => {
+            return !element.classList.contains('cookiealert');
+        });
+
+        $alerts.fadeTo(500, 0).slideUp(500, function(){
             $(this).remove();
         });
     }, 2000);
@@ -31,11 +35,14 @@ $(document).ready(() => {
     $('ul li[controller=' + location.pathname.split("/")[1] + '] a')[0].classList.add('active')
 })
 
+// Validates notebook, note and quick_note in the Front-end
 function validateForm() {
+    // Extract the values of the form elements
     let title = $('#title').val();
     let content = $('#content').val();
     let isCorrect = true;
 
+    // Specify the errors in the front end
     if (!title) {
         $('#title-error').text('Title must not be empty!');
         isCorrect = false;
@@ -50,6 +57,7 @@ function validateForm() {
         $('#content-error').text('');
     }
 
+    // Either submit the form or make the button clickable after half a second.
     if (isCorrect) {
         $('form')[0].submit();
     } else{

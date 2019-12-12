@@ -1,16 +1,21 @@
 class NotebooksController < ApplicationController
+  # Set the notebook before the specific actions
   before_action :set_notebook, only: [:show, :edit, :update, :destroy]
+
+  # Authenticate user, before every action
   before_action :authenticate_user!
 
   # GET /notebooks
   # GET /notebooks.json
   def index
+    # The notebooks of the current user
     @notebooks = current_user.notebooks
   end
 
   # GET /notebooks/1
   # GET /notebooks/1.json
   def show
+    # If the current user does not have access to that notebook -> show not found
     if @notebook.user != current_user
       not_found
     end
@@ -18,11 +23,13 @@ class NotebooksController < ApplicationController
 
   # GET /notebooks/new
   def new
+    # Create a new notebook to fill the forms
     @notebook = Notebook.new
   end
 
   # GET /notebooks/1/edit
   def edit
+    # If the current user does not have access to that notebook -> show not found
     if @notebook.user != current_user
       not_found
     end
@@ -31,14 +38,20 @@ class NotebooksController < ApplicationController
   # POST /notebooks
   # POST /notebooks.json
   def create
+    # Create the notebook with the parameters from the post request
     @notebook = Notebook.new(notebook_params)
+
+    # Specify the current user as the user for the notebook
     @notebook.user = current_user
 
+    # Try saving the notebook
     respond_to do |format|
       if @notebook.save
+        # Display the notebook
         format.html { redirect_to @notebook, notice: I18n.t('controllers.notebooks.create') }
         format.json { render :show, status: :created, location: @notebook }
       else
+        # Show the error
         format.html { render :new }
         format.json { render json: @notebook.errors, status: :unprocessable_entity }
       end
@@ -48,11 +61,13 @@ class NotebooksController < ApplicationController
   # PATCH/PUT /notebooks/1
   # PATCH/PUT /notebooks/1.json
   def update
+    # If the current user does not have access to that notebook -> show not found
     if @notebook.user != current_user
       not_found
     end
 
     respond_to do |format|
+      # Try updating the notebook
       if @notebook.update(notebook_params)
         format.html { redirect_to @notebook, notice: I18n.t('controllers.notebooks.update') }
         format.json { render :show, status: :ok, location: @notebook }
@@ -66,10 +81,12 @@ class NotebooksController < ApplicationController
   # DELETE /notebooks/1
   # DELETE /notebooks/1.json
   def destroy
+    # If the current user does not have access to that notebook -> show not found
     if @notebook.user != current_user
       not_found
     end
 
+    # Destroy the notebook (its notes are destroyed, too)
     @notebook.destroy
     respond_to do |format|
       format.html { redirect_to notebooks_url, notice: I18n.t('controllers.notebooks.destroy') }

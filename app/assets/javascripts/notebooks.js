@@ -1,3 +1,4 @@
+// When all contents of the html have been loaded by the browser.
 $(document).ready(() => {
     // Make all notebooks equal in size.
     let maxNotebookHeight = Number.MIN_VALUE;
